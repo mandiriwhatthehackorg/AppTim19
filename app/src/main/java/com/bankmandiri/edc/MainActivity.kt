@@ -121,8 +121,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun getToken() {
 
         val apiService = ApiService.createOpenshift(this)
-
-
         apiService
             .getTokenData()
             .subscribeOn(Schedulers.io())

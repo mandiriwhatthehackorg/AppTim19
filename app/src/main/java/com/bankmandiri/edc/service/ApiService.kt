@@ -8,6 +8,7 @@ import com.bankmandiri.edc.model.register.RegisterInitateResponse
 import com.bankmandiri.edc.model.register.RegisterInitiateRequest
 import com.bankmandiri.edc.model.register.RegisterOTPRequest
 import com.bankmandiri.edc.model.register.RegisterOTPResponse
+import com.bankmandiri.edc.model.transfer.TransferRequest
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Response
@@ -38,6 +39,10 @@ interface ApiService {
     @Headers("Accept: application/json")
     @POST("api/initiate/validateOTP")
     fun postValidateOTP(@Header("Authorization") credentials: String, @Body body: RegisterOTPRequest): Single<Response<RegisterOTPResponse>>
+
+    @Headers("Accept: application/json")
+    @POST("gateway/TrxAndPaymentAPI/1.0/transfer")
+    fun postTransfer(@Header("Authorization") credentials: String, @Body body: TransferRequest): Single<Response<Void>>
 
     companion object {
         fun create(ctx: Context): ApiService {

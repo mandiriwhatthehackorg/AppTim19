@@ -135,11 +135,19 @@
                 </LinearLayout>
 
                 <Button
+                        android:id="@+id/btn_next"
                         android:textColor="@android:color/white"
                         android:text="KIRIM UANG"
                         android:background="@drawable/button_accent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
+
+                <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/progress"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
