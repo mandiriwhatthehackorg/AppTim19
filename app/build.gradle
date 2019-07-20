@@ -17,13 +17,15 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField "String", "SERVER_URL", '""'
+            buildConfigField "String", "SERVER_URL", '"http://apigateway.mandiriwhatthehack.com"'
+            buildConfigField "String", "OOB_URL", '"https://oob.mandiriwhatthehack.com/api/"'
             buildConfigField "String", "API_KEY", '""'
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", '""'
+            buildConfigField "String", "SERVER_URL", '"http://apigateway.mandiriwhatthehack.com"'
+            buildConfigField "String", "OOB_URL", '"https://oob.mandiriwhatthehack.com/api/"'
             buildConfigField "String", "API_KEY", '""'
         }
     }
@@ -75,6 +77,9 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
     implementation 'com.facebook.shimmer:shimmer:0.3.0'
+
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
 
 
     testImplementation 'junit:junit:4.12'

@@ -1,21 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/app_bar_main">
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <RelativeLayout
+                    android:background="@android:color/white"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <TextView
+                        android:layout_centerVertical="true"
+                        android:text="Saldo Aktif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:id="@+id/tv_balance"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:text="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent" android:layout_height="100dp">
+
+                <LinearLayout
+
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:text="TOKO BU MEKAR"
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:id="@+id/tv_norek"
+                            android:textColor="@android:color/white"
+                            android:text="Rekening: -"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <TextView
+                        android:layout_marginBottom="8dp"
+                        android:textStyle="bold"
+                        android:text="Layanan Perbankan"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                        android:weightSum="4"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <LinearLayout
+                            android:id="@+id/menu_qr"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                                  android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="QR Payment"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="Setor Tunai"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/menu_withdraw"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="Tarik Tunai"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:id="@+id/menu_transfer"
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="Kirim Uang"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_marginBottom="8dp"
+                        android:textStyle="bold"
+                        android:text="Topup dan Tagihan"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                        android:weightSum="4"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <LinearLayout
+
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="Pulsa / Paket"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="eWallet"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="Listrik"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="Air / PAM"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

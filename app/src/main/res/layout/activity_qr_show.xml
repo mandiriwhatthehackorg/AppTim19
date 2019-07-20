@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".MainActivity"
+            tools:showIn="@layout/app_bar_main">
+
+
+        <ImageView
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/img_qr"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+
+        <TextView
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="Scan untuk Bayar"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="Arahkan scanner ke QR Code untuk memproses pembayaran. Klik QR Code untuk memperjelas."
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

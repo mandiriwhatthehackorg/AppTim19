@@ -1,31 +1,38 @@
 package com.bankmandiri.edc
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.core.view.GravityCompat
-import androidx.appcompat.app.ActionBarDrawerToggle
-import android.view.MenuItem
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.bankmandiri.edc.service.ApiService
+import com.bankmandiri.edc.util.Constant
+import com.bankmandiri.edc.view.CashWithdrawActivity
+import com.bankmandiri.edc.view.EdcInputActivity
+import com.bankmandiri.edc.view.TransferActivity
+import com.google.android.material.navigation.NavigationView
+import com.google.gson.Gson
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.content_main.*
+import okhttp3.Credentials
+import java.math.BigInteger
+import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    var token = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+        /*
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
@@ -34,6 +41,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+        */
+
+        getToken()
+
+        menu_qr.setOnClickListener {
+            startActivity(Intent(this, EdcInputActivity::class.java))
+        }
+
+        menu_withdraw.setOnClickListener {
+            startActivity(Intent(this, CashWithdrawActivity::class.java))
+        }
+
+        menu_transfer.setOnClickListener {
+            startActivity(Intent(this, TransferActivity::class.java))
+        }
+
     }
 
     override fun onBackPressed() {
@@ -87,4 +110,71 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+    @SuppressLint("CheckResult")
+    fun getToken() {
+
+        val credentials = Credentials.basic("ecfa2803-040d-444c-b288-9c78681e12a5", "ee0f8a2b-0f6e-4421-b713-ce78e8896060")
+        val apiService = ApiService.create(this)
+
+
+        apiService
+            .getToken("Basic ZWNmYTI4MDMtMDQwZC00NDRjLWIyODgtOWM3ODY4MWUxMmE1OmVlMGY4YTJiLTBmNmUtNDQyMS1iNzEzLWNlNzhlODg5NjA2MA")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                    result ->
+
+                Log.e(Constant.TAG, Gson().toJson(result.body()))
+
+                val response = result.body()
+                token = response?.jwt.toString()
+                getBalance()
+            },
+                { error ->
+                    Log.e(Constant.TAG, Gson().toJson(error))
+                    Log.e(Constant.TAG, error.message)
+                }
+            )
+
+
+    }
+
+    @SuppressLint("CheckResult")
+    fun getBalance() {
+
+        val apiService = ApiService.create(this)
+
+
+        apiService
+            .getBalance("Bearer ${token}")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                    result ->
+
+                Log.e(Constant.TAG, Gson().toJson(result.body()))
+
+                val response = result.body()
+                val balance= response?.response?.balance?.balanceInfo?.ledgerBalance.toString().split(".")[0] ?: "0"
+
+                tv_balance.setText(formatMoney(balance))
+                tv_norek.text = "No. Rekening: ${response?.response?.balance?.accountNumber}"
+            },
+                { error ->
+                    Log.e(Constant.TAG, Gson().toJson(error))
+                    Log.e(Constant.TAG, error.message)
+                }
+            )
+
+
+    }
+
+    private fun formatMoney(balance: String): String {
+
+
+        return NumberFormat.getInstance().format(BigInteger(balance))
+    }
+
+
 }
