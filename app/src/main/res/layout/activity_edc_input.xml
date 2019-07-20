@@ -51,11 +51,12 @@
 
 
                     <TextView
+                            android:id="@+id/tv_amount"
                             android:layout_margin="32dp"
                             android:textSize="48sp"
                             android:textAlignment="center"
                             android:textStyle="bold"
-                            android:text="0"
+                            android:text=""
                             android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
                     <LinearLayout
@@ -71,6 +72,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu1"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -95,6 +97,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu2"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -119,6 +122,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu3"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -153,6 +157,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu4"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -177,6 +182,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu5"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -201,6 +207,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu6"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -235,6 +242,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu7"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -259,6 +267,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu8"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -283,6 +292,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu9"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">
@@ -342,6 +352,7 @@
                                 android:layout_height="wrap_content">
 
                             <LinearLayout
+                                    android:id="@+id/menu0"
                                     android:background="@drawable/circle_grey"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp">

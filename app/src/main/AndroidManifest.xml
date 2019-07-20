@@ -56,6 +56,10 @@
                 android:name=".view.RegisterActivity"
                 android:label="Pembukaan Rekening Online"/>
 
+        <activity
+                android:name=".view.LoanActivity"
+                android:label="Pengajuan Pinjaman"/>
+
     </application>
 
 </manifest>

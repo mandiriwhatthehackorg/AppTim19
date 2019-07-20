@@ -11,6 +11,8 @@ class Constant {
         const val SP_TOKEN = "token"
         const val SP_EMAIL = "email"
 
+        const val BASIC_AUTH = "ZWNmYTI4MDMtMDQwZC00NDRjLWIyODgtOWM3ODY4MWUxMmE1OmVlMGY4YTJiLTBmNmUtNDQyMS1iNzEzLWNlNzhlODg5NjA2MA"
+
     }
 
 }

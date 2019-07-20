@@ -34,7 +34,7 @@ class RegisterFormFragment : Fragment() {
             val activity = activity
             if (activity is RegisterActivity) {
                 val parentActivity = activity as RegisterActivity?
-                parentActivity!!.openFragment(RegisterKYCFragment(),3)
+                parentActivity!!.openFragment(RegisterKYCFragment(),4)
             }
         }
 

@@ -4,15 +4,17 @@ import android.content.Context
 import com.bankmandiri.edc.BuildConfig
 import com.bankmandiri.edc.model.TokenResponse
 import com.bankmandiri.edc.model.balance.BalanceResponse
+import com.bankmandiri.edc.model.register.RegisterInitateResponse
+import com.bankmandiri.edc.model.register.RegisterInitiateRequest
+import com.bankmandiri.edc.model.register.RegisterOTPRequest
+import com.bankmandiri.edc.model.register.RegisterOTPResponse
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Headers
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -25,6 +27,13 @@ interface ApiService {
     @GET("gateway/ServicingAPI/1.0/customer/casa/1111006406037/balance")
     fun getBalance(@Header("Authorization") credentials: String): Single<Response<BalanceResponse>>
 
+    @Headers("Accept: application/json")
+    @POST("api/initiate/createSession")
+    fun postRegisterInitiate(@Body body: RegisterInitiateRequest): Single<Response<RegisterInitateResponse>>
+
+    @Headers("Accept: application/json")
+    @POST("api/initiate/validateOTP")
+    fun postValidateOTP(@Header("Authorization") credentials: String, @Body body: RegisterOTPRequest): Single<Response<RegisterOTPResponse>>
 
     companion object {
         fun create(ctx: Context): ApiService {

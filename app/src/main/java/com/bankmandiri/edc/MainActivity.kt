@@ -9,18 +9,18 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import com.bankmandiri.edc.service.ApiService
 import com.bankmandiri.edc.util.Constant
+import com.bankmandiri.edc.util.Constant.Companion.BASIC_AUTH
 import com.bankmandiri.edc.view.CashWithdrawActivity
 import com.bankmandiri.edc.view.EdcInputActivity
+import com.bankmandiri.edc.view.LoanActivity
 import com.bankmandiri.edc.view.TransferActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.content_main.*
-import okhttp3.Credentials
 import java.math.BigInteger
 import java.text.NumberFormat
 
@@ -56,6 +56,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         menu_transfer.setOnClickListener {
             startActivity(Intent(this, TransferActivity::class.java))
+        }
+
+        menu_loan.setOnClickListener {
+            startActivity(Intent(this, LoanActivity::class.java))
         }
 
     }
@@ -117,12 +121,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     @SuppressLint("CheckResult")
     fun getToken() {
 
-        val credentials = Credentials.basic("ecfa2803-040d-444c-b288-9c78681e12a5", "ee0f8a2b-0f6e-4421-b713-ce78e8896060")
         val apiService = ApiService.create(this)
 
 
         apiService
-            .getToken("Basic ZWNmYTI4MDMtMDQwZC00NDRjLWIyODgtOWM3ODY4MWUxMmE1OmVlMGY4YTJiLTBmNmUtNDQyMS1iNzEzLWNlNzhlODg5NjA2MA")
+            .getToken("Basic ${BASIC_AUTH}")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

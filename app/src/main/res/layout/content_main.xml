@@ -183,7 +183,7 @@
 
 
                     <LinearLayout
-
+                            android:id="@+id/menu_loan"
                             android:orientation="vertical"
                             android:gravity="center_horizontal"
                             android:layout_weight="1"

@@ -21,7 +21,11 @@ class ShowQRActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        generateQr("test123", img_qr)
+        val amount = intent.getStringExtra("amount")
+
+        tv_amount.text = "Jumlah: ${amount}"
+
+        generateQr(amount, img_qr)
 
         img_qr.setOnClickListener {
 

@@ -17,6 +17,8 @@ class RegisterActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         openFragment(RegisterInitiateFragment())
 
     }
