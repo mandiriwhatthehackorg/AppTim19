@@ -52,6 +52,10 @@
                 android:name=".view.TransferActivity"
                 android:label="Kirim Uang"/>
 
+        <activity
+                android:name=".view.RegisterActivity"
+                android:label="Pembukaan Rekening Online"/>
+
     </application>
 
 </manifest>

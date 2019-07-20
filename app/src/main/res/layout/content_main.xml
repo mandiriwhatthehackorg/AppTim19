@@ -44,7 +44,7 @@
             <RelativeLayout
                     android:background="@color/colorPrimaryDark"
                     android:padding="@dimen/activity_vertical_margin"
-                    android:layout_width="match_parent" android:layout_height="100dp">
+                    android:layout_width="match_parent" android:layout_height="150dp">
 
                 <LinearLayout
 
@@ -98,6 +98,11 @@
                                 android:background="@drawable/circle_orange"
                                 android:layout_width="50dp" android:layout_height="50dp">
 
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_qr"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+
 
                         </LinearLayout>
 
@@ -111,30 +116,6 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-
-                            android:orientation="vertical"
-                            android:gravity="center_horizontal"
-                            android:layout_weight="1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                        <LinearLayout
-                                android:background="@drawable/circle_orange"
-                                android:layout_width="50dp" android:layout_height="50dp">
-
-
-                        </LinearLayout>
-
-                        <TextView
-                                android:layout_marginTop="4dp"
-                                android:textSize="12sp"
-                                android:textAlignment="center"
-                                android:text="Setor Tunai"
-                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
-
-
-                    </LinearLayout>
 
                     <LinearLayout
                             android:id="@+id/menu_withdraw"
@@ -147,6 +128,13 @@
                         <LinearLayout
                                 android:background="@drawable/circle_orange"
                                 android:layout_width="50dp" android:layout_height="50dp">
+
+
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_cash"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+
 
 
                         </LinearLayout>
@@ -162,7 +150,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-
+                            android:id="@+id/menu_transfer"
                             android:orientation="vertical"
                             android:gravity="center_horizontal"
                             android:layout_weight="1"
@@ -174,10 +162,16 @@
                                 android:layout_width="50dp" android:layout_height="50dp">
 
 
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_payment"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+
+
                         </LinearLayout>
 
                         <TextView
-                                android:id="@+id/menu_transfer"
                                 android:layout_marginTop="4dp"
                                 android:textSize="12sp"
                                 android:textAlignment="center"
@@ -187,6 +181,36 @@
 
                     </LinearLayout>
 
+
+                    <LinearLayout
+
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <LinearLayout
+                                android:background="@drawable/circle_orange"
+                                android:layout_width="50dp" android:layout_height="50dp">
+
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_contract"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                                android:layout_marginTop="4dp"
+                                android:textSize="12sp"
+                                android:textAlignment="center"
+                                android:text="Pinjaman"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
 
 
 
@@ -223,6 +247,12 @@
                                 android:background="@drawable/circle_orange"
                                 android:layout_width="50dp" android:layout_height="50dp">
 
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_smartphone"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+
 
                         </LinearLayout>
 
@@ -247,6 +277,11 @@
                         <LinearLayout
                                 android:background="@drawable/circle_orange"
                                 android:layout_width="50dp" android:layout_height="50dp">
+
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_wallet2"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
 
 
                         </LinearLayout>
@@ -273,6 +308,11 @@
                                 android:background="@drawable/circle_orange"
                                 android:layout_width="50dp" android:layout_height="50dp">
 
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_flash"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+
 
                         </LinearLayout>
 
@@ -297,6 +337,11 @@
                         <LinearLayout
                                 android:background="@drawable/circle_orange"
                                 android:layout_width="50dp" android:layout_height="50dp">
+
+                            <ImageView
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_wind"
+                                    android:layout_width="match_parent" android:layout_height="match_parent"/>
 
 
                         </LinearLayout>

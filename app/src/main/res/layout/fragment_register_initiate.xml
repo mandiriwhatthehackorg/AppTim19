@@ -75,6 +75,7 @@
             </LinearLayout>
 
             <Button
+                    android:id="@+id/btn_next"
                     android:textColor="@android:color/white"
                     android:text="LANJUT"
                     android:background="@drawable/button_accent"
