@@ -9,6 +9,15 @@
         tools:context=".MainActivity"
         tools:showIn="@layout/app_bar_main">
 
+    <ImageView
+            android:layout_alignParentEnd="true"
+            android:alpha="0.5"
+            android:layout_alignParentBottom="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/line_orange"
+            android:layout_width="300dp" android:layout_height="wrap_content"/>
+
+
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
