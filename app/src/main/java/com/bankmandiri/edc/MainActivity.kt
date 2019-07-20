@@ -11,10 +11,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bankmandiri.edc.service.ApiService
 import com.bankmandiri.edc.util.Constant
-import com.bankmandiri.edc.view.CashWithdrawActivity
-import com.bankmandiri.edc.view.EdcInputActivity
-import com.bankmandiri.edc.view.LoanActivity
-import com.bankmandiri.edc.view.TransferActivity
+import com.bankmandiri.edc.view.*
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -59,6 +56,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         menu_loan.setOnClickListener {
             startActivity(Intent(this, LoanActivity::class.java))
+        }
+
+        menu_mobile.setOnClickListener {
+            startActivity(Intent(this, MobileActivity::class.java))
         }
 
     }

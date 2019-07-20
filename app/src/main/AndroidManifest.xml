@@ -60,6 +60,11 @@
                 android:name=".view.LoanActivity"
                 android:label="Pengajuan Pinjaman"/>
 
+        <activity
+                android:name=".view.MobileActivity"
+                android:label="Beli Pulsa"/>
+
+
     </application>
 
 </manifest>
