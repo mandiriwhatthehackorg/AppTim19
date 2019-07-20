@@ -24,6 +24,10 @@ interface ApiService {
     fun getToken(@Header("Authorization") credentials: String): Single<Response<TokenResponse>>
 
     @Headers("Accept: application/json")
+    @GET("getToken.php")
+    fun getTokenData(): Single<Response<TokenResponse>>
+
+    @Headers("Accept: application/json")
     @GET("gateway/ServicingAPI/1.0/customer/casa/1111006406037/balance")
     fun getBalance(@Header("Authorization") credentials: String): Single<Response<BalanceResponse>>
 
@@ -52,6 +56,27 @@ interface ApiService {
                 .addConverterFactory(
                     GsonConverterFactory.create())
                 .baseUrl(BuildConfig.SERVER_URL)
+                .build()
+
+            return retrofit.create(ApiService::class.java)
+        }
+
+        fun createOpenshift(ctx: Context): ApiService {
+
+
+            val dbServices = DbServices(ctx)
+            val token = dbServices.findToken()
+
+            val client = OkHttpClient.Builder()
+                .build()
+
+            val retrofit = Retrofit.Builder()
+                .client(client)
+                .addCallAdapterFactory(
+                    RxJava2CallAdapterFactory.create())
+                .addConverterFactory(
+                    GsonConverterFactory.create())
+                .baseUrl("http://wth-medc-api-wth-19.apps.openshift.mandiriwhatthehack.com/")
                 .build()
 
             return retrofit.create(ApiService::class.java)

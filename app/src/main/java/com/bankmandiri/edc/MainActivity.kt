@@ -11,7 +11,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bankmandiri.edc.service.ApiService
 import com.bankmandiri.edc.util.Constant
-import com.bankmandiri.edc.util.Constant.Companion.BASIC_AUTH
 import com.bankmandiri.edc.view.CashWithdrawActivity
 import com.bankmandiri.edc.view.EdcInputActivity
 import com.bankmandiri.edc.view.LoanActivity
@@ -121,11 +120,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     @SuppressLint("CheckResult")
     fun getToken() {
 
-        val apiService = ApiService.create(this)
+        val apiService = ApiService.createOpenshift(this)
 
 
         apiService
-            .getToken("Basic ${BASIC_AUTH}")
+            .getTokenData()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

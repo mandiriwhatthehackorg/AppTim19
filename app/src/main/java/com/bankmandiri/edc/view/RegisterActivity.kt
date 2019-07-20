@@ -29,6 +29,11 @@ class RegisterActivity : AppCompatActivity() {
             .commit()
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
     fun openFragment(fragment: Fragment, position: Int) {
         openFragment(fragment)
 
